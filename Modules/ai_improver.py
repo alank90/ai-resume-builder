@@ -1,5 +1,3 @@
-from PIL import Image
-from io import StringIO
 import streamlit as st
 import openai
 from utils import *
