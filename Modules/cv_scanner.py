@@ -18,3 +18,16 @@ def download_result(template_file=RESULT_FILE):
     st.download_button(
         'Download the result of your AI improved CV here :wink:', content)
     content_file.close()
+
+
+def experience_parser(text_cv):
+    list_experiences = text_cv.split('EXPERIENCE')
+    selected_experience = []
+    for l in list_experiences:
+        try:
+            int(l[0][0])
+            selected_experience.append(l)
+        except:
+            continue
+
+    return selected_experience
