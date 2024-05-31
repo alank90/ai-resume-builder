@@ -6,11 +6,20 @@ from Modules.constants import *
 from Modules.cv_scanner import *
 
 # ================================================================ #
-# ================= Funnctions ==================================== #
+# ================= Functions ==================================== #
 # ================================================================ #
 
 
 def summary_result(string_data):
+    """Function takes CV summary text and runs it thru OPENAI to improve
+    the cv summary portion
+
+    Args:
+        string_data (string): improved CV summary section
+
+    Returns:
+        String: OPENAI generated text
+    """
     st.write('Improving the summary for you! :rocket:')
     trimmed_text = get_fixedkey_text(FIXED_KEYS[1], string_data)
     text = summary_corrector(trimmed_text)
@@ -19,6 +28,15 @@ def summary_result(string_data):
 
 
 def experience_result(experience_text):
+    """Function sends CV experience section to OPENAI to generate an 
+    a better section
+
+    Args:
+        experience_text (String): Original experience section text
+
+    Returns:
+        String: OPENAI generated text
+    """
     st.write('Improving the work experience for you!')
     text = single_experience_corrector(experience_text)
 
@@ -31,15 +49,14 @@ def experience_result(experience_text):
 # ================= Main Procedure =============================== #
 # ================================================================ #
 if __name__ == '__main__':
-    image = Image.open('resume_image.jpeg')
+    image = Image.open('/images/resume_image.jpeg')
     st.image(image, caption='Photo by Unseen Studio on Unsplash')
     st.header('Improving your CV in seconds using ChatGPT!')
     st.write('This app is meant to improve the quality of your CV by using Artificial Intelligence\n Start by downloading the template, fill the information, upload your CV and enjoy the magic! :smile:')
     st.write("\n Let's see what you got! Download the following template and fill it out with your information! :sunglasses:")
     download_template()
-
     uploaded_file = st.file_uploader("Upload your CV here! :point_down")
-    reviewed_experinces = []
+    reviewed_experiences = []
 
     if uploaded_file is not None:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
@@ -55,15 +72,14 @@ if __name__ == '__main__':
         for e in experiences:
             print('Experience:')
             print(e.split('[SEP]')[-2])
-            review_experience = experience_result(e.split('[SEP]')[-2])
-            reviewed_experinces.append(review_experience)
 
         new_file = open('cv_improved.txt', 'w+')
-        new_file.write('Summary:\n')
+        new_file.write('SUMMARY:\n')
         new_file.write(reviewed_summary)
 
-        for e in range(len(reviewed_experinces)):
-            new_file.write('\nExperience %i \n' % (e))
-            new_file.write(reviewed_experinces[e])
+        for e in range(len(reviewed_experiences)):
+            new_file.write('\nEXPERIENCE %i \n' % (e))
+            new_file.write(reviewed_experiences[e])
+
         new_file.close()
         download_result()

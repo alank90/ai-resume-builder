@@ -18,6 +18,7 @@ def single_experience_corrector(experience_text):
 
     st.markdown("<span style='color:lightblue'>" +
                 experience_text+"</span>", unsafe_allow_html=True)
+    st.text('The AI suggests the following summary instead: \n')
     # print(final_correction)
     st.markdown("<span style='color:red'>"+correct_text +
                 "</span>", unsafe_allow_html=True)
@@ -31,14 +32,14 @@ def summary_corrector(summary_text):
     first_correction = general_corrector(
         prompt=SUMMARY_PROMPT_CONVERT+summary_text, temperature=TEMPERATURE_SUMMARY_PROMPT_CONVERT, max_tokens=200)
     print('The AI is improving the rephrased summary \n')
-    st.text('The AI is improving the rephresed summary \n')
+    st.text('The AI is improving the rephrased summary \n')
     final_correction = general_corrector(
         prompt=SUMMARY_PROMPT_IMPROVER+first_correction, temperature=TEMPERATURE_SUMMARY_PROMPT_IMPROVER, max_tokens=200)
-    print('The summary of your current CV is the followin: \n')
+    print('The summary of your current CV is the following: \n')
     st.text('The AI is improving the rephrased summary \n')
     print(summary_text)
     # st.text (summary_text)
-    st.text('The summary section of your CV is the the following one: \n')
+    st.text('The summary section of your CV is the following one: \n')
     st.markdown("<span style='color:lightblue'>" +
                 summary_text+"</span>", unsafe_allow_html=True)
     st.text('The AI suggests the following summary instead: \n')
