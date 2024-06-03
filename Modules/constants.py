@@ -1,5 +1,5 @@
 import os
-
+# ======== Constants used in App ========================== #
 FIXED_KEYS = ['NAME', 'SUMMARY', 'DOB', 'WORKING AS', 'CONTACTS']
 VARIABLE_KEYS = ['EXPERIENCE', 'SCHOOL']
 ORDERED_KEYS = ['NAME', 'DOB', 'WORKING AS',

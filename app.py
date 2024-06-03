@@ -11,8 +11,8 @@ from Modules.cv_scanner import *
 
 
 def summary_result(string_data):
-    """Function takes CV summary text and runs it thru OPENAI to improve
-    the cv summary portion
+    """ Summary - Function takes CV summary text and runs it thru OpenAI 
+         Completion module to improve the CV summary portion.
 
     Args:
         string_data (string): improved CV summary section
@@ -28,7 +28,7 @@ def summary_result(string_data):
 
 
 def experience_result(experience_text):
-    """Function sends CV experience section to OPENAI to generate an 
+    """ Summary - Function sends CV experience section to OPENAI to generate an 
     a better section
 
     Args:
