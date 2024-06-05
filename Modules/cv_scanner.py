@@ -1,19 +1,20 @@
 import streamlit as st
-from constants import *
+from Modules.constants import *
 
 
 def download_template(template_file=TEMPLATE_FILE):
-    """Summary - Function opens the template_file(cv_example.txt) for reading
-    and reads its contents and puts file contents into variable "content".
+    """Summary - Function opens the template_file(cv_template.txt) for reading
+    and puts contents into variable "content".
 
     Args:
-        template_file (file, optional): The CV file. Defaults to TEMPLATE_FILE.
+        template_file (file, optional): The CV template file. Defaults to TEMPLATE_FILE.
     """
     content_file = open(template_file, 'r')
     content = content_file.read()
     # Defaults to 'text/plain')
     st.download_button(
         'The first step is to fill the CV. Download the template here :rocket:', content)
+    print(content)
     content_file.close()
 
 
@@ -35,7 +36,7 @@ def download_result(template_file=RESULT_FILE):
 
 def experience_parser(text_cv):
     """Summary - Function takes the CV text and splits the string on the text "EXPERIENCE"
-    creating a list(list_experiences),attempts to convert the first character of 
+    creating a list(list_experiences), attempts to convert the first character of 
     the first element of each experience to an integer, and adds the experience 
     to the `selected_experience` list if the conversion is successful.  
 

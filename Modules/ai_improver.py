@@ -1,11 +1,17 @@
 import streamlit as st
-import openai
-from utils import *
-from constants import *
-openai.api_key = OPENAIKEY
+from openai import OpenAI
+from Modules.utils import *
+from Modules.constants import *
+
+# ====== Variables ===================== #
+client = OpenAI()
+
+# ==================================================== #
+# ==================== Functions ===================== #
+# ==================================================== #
 
 
-def general_corrector(prompt, temperature, model=OPENAIMODEL, max_tokens=20):
+def general_corrector(prompt, temperature, model=OPENAIMODEL, max_tokens=50):
     """ Summary - Function uses the OpenAI Completion module. You give it
       a prompt and it returns a text completion, generated according to your
       parameters. 
@@ -17,13 +23,21 @@ def general_corrector(prompt, temperature, model=OPENAIMODEL, max_tokens=20):
         max_tokens (int, optional): Maximum size of response. Defaults to 20.
 
     Returns:
-        String: OpenAi's Completions API response's text field property to the
-          request.
+        String: OpenAi's client.chat.completions.create method content field property to the
+          call.
     """
-    openai.api_key = OPENAIKEY
-    res = openai.Completion.create(
-        model=model, prompt=prompt, temperature=temperature, max_tokens=max_tokens)
-    return res['choices'][0]['text']
+
+    completion = client.chat.completions.create(
+        model=model,
+        messages=[{"role": "user", "content": prompt}],
+        temperature=temperature,
+        max_tokens=max_tokens
+    )
+
+    print(completion.choices[0].message.content)
+    return completion.choices[0].message.content
+
+# ------------------------------------------------------------------------------- #
 
 
 def single_experience_corrector(experience_text):
@@ -47,10 +61,12 @@ def single_experience_corrector(experience_text):
 
     return correct_text
 
+# ------------------------------------------------------------------------------- #
+
 
 def summary_corrector(summary_text):
     """Summary - The function calls general_corrector() twice to improve the Summary
-      section of the CV. It then outputs the section using Stramlit.
+      section of the CV. It then outputs the section using Streamlit.
 
     Args:
         summary_text (String): Original summary text in the CV.
@@ -60,10 +76,14 @@ def summary_corrector(summary_text):
     """
     print('The AI is rephrasing the text (if necessary): \n')
     st.text('The AI is rephrasing the text (if necessary): \n')
+
+    # Call the OpenAI Completion model
     first_correction = general_corrector(
         prompt=SUMMARY_PROMPT_CONVERT+summary_text, temperature=TEMPERATURE_SUMMARY_PROMPT_CONVERT, max_tokens=200)
     print('The AI is improving the rephrased summary \n')
     st.text('The AI is improving the rephrased summary \n')
+
+    # Call the OpenAI Completion module once again to refine results
     final_correction = general_corrector(
         prompt=SUMMARY_PROMPT_IMPROVER+first_correction, temperature=TEMPERATURE_SUMMARY_PROMPT_IMPROVER, max_tokens=200)
     print('The summary of your current CV is the following: \n')
@@ -79,6 +99,8 @@ def summary_corrector(summary_text):
                 "</span>", unsafe_allow_html=True)
 
     return final_correction
+
+# ------------------------------------------------------------------------------- #
 
 
 def summary_corrector_main(summary_text):
@@ -97,6 +119,8 @@ def summary_corrector_main(summary_text):
         prompt=SUMMARY_PROMPT_IMPROVER+first_correction, temperature=TEMPERATURE_SUMMARY_PROMPT_IMPROVER, max_tokens=200)
 
     return final_correction
+
+# ------------------------------------------------------------------------------- #
 
 
 def single_experience_corrector_main(experience_text):

@@ -15,10 +15,10 @@ def summary_result(string_data):
          Completion module to improve the CV summary portion.
 
     Args:
-        string_data (string): improved CV summary section
+        string_data (string): Original CV summary section
 
     Returns:
-        String: OPENAI generated text
+        String: Updated OpenAI generated CV summary text section. 
     """
     st.write('Improving the summary for you! :rocket:')
     trimmed_text = get_fixedkey_text(FIXED_KEYS[1], string_data)
@@ -28,8 +28,8 @@ def summary_result(string_data):
 
 
 def experience_result(experience_text):
-    """ Summary - Function sends CV experience section to OPENAI to generate an 
-    a better section
+    """ Summary - Function sends CV experience section to OPENAI to generate  
+         AI generated section.
 
     Args:
         experience_text (String): Original experience section text
@@ -49,7 +49,7 @@ def experience_result(experience_text):
 # ================= Main Procedure =============================== #
 # ================================================================ #
 if __name__ == '__main__':
-    image = Image.open('/images/resume_image.jpeg')
+    image = Image.open('images/resume_image.jpeg')
     st.image(image, caption='Photo by Unseen Studio on Unsplash')
     st.header('Improving your CV in seconds using ChatGPT!')
     st.write('This app is meant to improve the quality of your CV by using Artificial Intelligence\n Start by downloading the template, fill the information, upload your CV and enjoy the magic! :smile:')

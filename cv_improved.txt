@@ -1,0 +1,2 @@
+SUMMARY:
+I am a Physicist with a Master's Degree in Physics of Complex Systems and Big Data, currently employed as a Research Assistant at the University of Cincinnati. My research is centered around utilizing Machine Learning and Data Science to enhance engineering experiments. In addition to my academic work, I am a technical writer for Towards Data Science, a course creator and instructor for Teens in AI, and the developer of courses on Image Processing and Signal Processing.

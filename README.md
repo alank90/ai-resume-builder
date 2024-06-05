@@ -24,9 +24,8 @@ _.\env\Scripts\activate.ps1_
 
 ## Notes on setting up Python project & environment
 
-- Create a .env file in root directory and then add the key OPEN_AI_KEY="My_API_Key"
-
-  Then, in a Python script we will import it via the _load_dotenv_ library(already installed in the project via _requirements.txt_) and call it:
+- Create a .env file in root directory and then add the key OPENAI*API_KEY="My_API_Key".
+  Because we have specifically named the env variable "\_OPENAI_API_KEY*" the OpenAI module will automatically import it, no need to add it when initializing the client. Or else you can assign a variable with the _load_dotenv_ library and call it:
 
   _from **dotenv** import \*\*\_load_dotenv_\*\*
 
@@ -53,6 +52,10 @@ _.\env\Scripts\activate.ps1_
 - Download a .gitignore file with **_wget https://raw.githubusercontent.com/github/gitignore/master/Python.gitignore -O .gitignore_**
 
 For Linting and styling also add extentions **[pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint)** & **[autopep8](https://marketplace.visualstudio.com/items?itemName=ms-python.autopep8)**
+
+To run the app at the prompt type:
+
+_**streamlit run app.py**_
 
 ## Note
 
