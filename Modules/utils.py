@@ -2,15 +2,16 @@ from Modules.constants import *
 
 
 def get_fixedkey_text(key, text):
-    """ Summary - Function gets passed a section name in the CV via the
-          key parameter and its corresponding text. 
+    """ Summary - Function gets passed a key value from the FIXED_KEYS
+        list and a copy of the CV form.
 
     Args:
-        key (String): item in the list ORDERED_KEYS
-        text (_type_): CV section text
+        key (String): item in the list ORDERED_KEYS or FIXED_KEYS
+        text (file(string)): CV form filled out by user
 
     Returns:
-        String: A CV's section(key) stripped of new lines
+        String: The CV portion from the beginning to end of the section
+         represented by the value in the "key" parameter. ie. SUMMARY or EXPERIENCE
     """
     # finds the index of the `key` parameter in the list `ORDERED_KEYS`
     # and assigns it to the variable `key_order`
@@ -25,7 +26,7 @@ def get_fixedkey_text(key, text):
     # within the `start_text`
     find_stop = start_text.find(next_key)
     # creates a substring of `start_text` starting from index 0 up to
-    # (but not including) the index of `find_stop`
+    # (but not including) the index of `find_stop` string value
     trimmed_text = start_text[0:find_stop]
     # Strip out new line characters
     trimmed_text = trimmed_text.replace('\n', '')

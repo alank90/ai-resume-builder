@@ -11,16 +11,19 @@ from Modules.cv_scanner import *
 
 
 def summary_result(string_data):
-    """ Summary - Function takes CV summary text and runs it thru OpenAI 
-         Completion module to improve the CV summary portion.
+    """ Summary - Function takes CV form and runs it thru OpenAI 
+         Completion method to improve the CV summary portion.
 
     Args:
-        string_data (string): Original CV summary section
+        string_data (string): Original CV form
 
     Returns:
-        String: Updated OpenAI generated CV summary text section. 
+        String: Updated OpenAI generated CV SUMMARY text section. 
     """
     st.write('Improving the summary for you! :rocket:')
+
+    # This will return a portion of the CV up to end of the SUMMARY
+    # section.
     trimmed_text = get_fixedkey_text(FIXED_KEYS[1], string_data)
     text = summary_corrector(trimmed_text)
 
@@ -61,18 +64,27 @@ if __name__ == '__main__':
     if uploaded_file is not None:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
         st.write(stringio)
+        # Read filled out form into string_data
         string_data = stringio.read()
+
         st.subheader('Lets discuss the summary :male-detective:')
+        # Submit the SUMMARY section to the OpenAI LLM for improvements
         reviewed_summary = summary_result(string_data)
+
+        # Let's process the experiences in the CV form
         st.subheader('Lets discuss the work experience :office:')
         experiences = experience_parser(string_data)
+        print("This is the parsed original experiences:", experiences)
         st.write('We noticed that you added ' +
                  str(len(experience_parser(string_data))))
 
+        # Iterate thru the experiences list
         for e in experiences:
             print('Experience:')
+            # This prints experiences rom the second-to-last
             print(e.split('[SEP]')[-2])
 
+        # Write SUMMARY and EXPERIENCES to cv_improved.txt
         new_file = open('cv_improved.txt', 'w+')
         new_file.write('SUMMARY:\n')
         new_file.write(reviewed_summary)

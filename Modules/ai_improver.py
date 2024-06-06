@@ -23,10 +23,10 @@ def general_corrector(prompt, temperature, model=OPENAIMODEL, max_tokens=50):
         max_tokens (int, optional): Maximum size of response. Defaults to 20.
 
     Returns:
-        String: OpenAi's client.chat.completions.create method content field property to the
-          call.
+        String: The results of a call to the OpenAI Completions method with suggestions for
+                improvements to the CV section passed to it.
     """
-
+    # Call to the OpenAI Completions method
     completion = client.chat.completions.create(
         model=model,
         messages=[{"role": "user", "content": prompt}],
