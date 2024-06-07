@@ -46,8 +46,7 @@ def experience_parser(text_cv):
         List: Containing experiences from the CV.
     """
     list_experiences = text_cv.split('EXPERIENCE ')
-    print("List of experiences", list_experiences)
-    input("Press the Enter key to continue: ") 
+    
     selected_experience = []
     for l in list_experiences:
         try:
@@ -56,6 +55,7 @@ def experience_parser(text_cv):
             # experience with a number.
             int(l[0][0])
             selected_experience.append(l)
+
         except:
             continue
 

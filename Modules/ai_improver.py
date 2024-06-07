@@ -34,7 +34,6 @@ def general_corrector(prompt, temperature, model=OPENAIMODEL, max_tokens=50):
         max_tokens=max_tokens
     )
 
-    print(completion.choices[0].message.content)
     return completion.choices[0].message.content
 
 # ------------------------------------------------------------------------------- #
@@ -88,7 +87,7 @@ def summary_corrector(summary_text):
         prompt=SUMMARY_PROMPT_IMPROVER+first_correction, temperature=TEMPERATURE_SUMMARY_PROMPT_IMPROVER, max_tokens=200)
     print('The summary of your current CV is the following: \n')
     st.text('The AI is improving the rephrased summary \n')
-    print(summary_text)
+    print(summary_text + "\n")
     # st.text (summary_text)
     st.text('The summary section of your CV is the following one: \n')
     st.markdown("<span style='color:lightblue'>" +
@@ -98,6 +97,7 @@ def summary_corrector(summary_text):
     st.markdown("<span style='color:red'>"+final_correction +
                 "</span>", unsafe_allow_html=True)
 
+    final_correction = "SUMMARY:\n" + final_correction
     return final_correction
 
 # ------------------------------------------------------------------------------- #

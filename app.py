@@ -10,6 +10,20 @@ from Modules.cv_scanner import *
 # ================================================================ #
 
 
+def profile_extractor(string_data):
+    """Summary - Function takes string_data and extracts out the beginning 
+        profile info.
+
+    Args:
+        string_data (String): The CV in string form
+
+    Returns:
+     String: The profile header portion of CV
+    """
+    cv_profile_section = string_data.split("SUMMARY:", maxsplit=1)[0]
+    return cv_profile_section
+
+
 def summary_result(string_data):
     """ Summary - Function takes CV form and runs it thru OpenAI 
          Completion method to improve the CV summary portion.
@@ -66,10 +80,14 @@ if __name__ == '__main__':
         st.write(stringio)
         # Read filled out form into string_data
         string_data = stringio.read()
+        # Extract out the profile info
+        profile_section = profile_extractor(string_data)
 
         st.subheader('Lets discuss the summary :male-detective:')
         # Submit the SUMMARY section to the OpenAI LLM for improvements
         reviewed_summary = summary_result(string_data)
+
+        updated_cv = profile_section + reviewed_summary
 
         # Let's process the experiences in the CV form
         st.subheader('Lets discuss the work experience :office:')
@@ -81,13 +99,14 @@ if __name__ == '__main__':
         # Iterate thru the experiences list
         for e in experiences:
             print('Experience:')
-            # This prints experiences rom the second-to-last
+            # This prints experiences from the second-to-last
             print(e.split('[SEP]')[-2])
 
-        # Write SUMMARY and EXPERIENCES to cv_improved.txt
+        # Write CV & EXPERIENCES to cv_improved.txt
         new_file = open('cv_improved.txt', 'w+')
-        new_file.write('SUMMARY:\n')
-        new_file.write(reviewed_summary)
+        # new_file.write('SUMMARY:\n')
+        # new_file.write(reviewed_summary)
+        new_file.write(updated_cv)
 
         for e in range(len(reviewed_experiences)):
             new_file.write('\nEXPERIENCE %i \n' % (e))
