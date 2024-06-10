@@ -1,0 +1,22 @@
+NAME:
+
+Piero Paialunga
+
+DOB:
+
+1997/08/25
+
+WORKING AS:
+
+Physicist, Data Scientist, Technical Writer
+
+SUMMARY:
+I am a Physicist specializing in Data Science and Deep Learning, with a Master's Degree in Physics Of Complex Systems and Big Data, graduating with top honors. Currently, I am a Research Assistant at the University of Cincinnati's Aerospace Engineering and Engineering Mechanics Department, pursuing a PhD. My research centers on leveraging Machine Learning and Data Science to enhance engineering experiments. I also serve as a technical writer for Towards Data Science, exploring advanced Machine Learning applications and techniques for a diverse audience. Furthermore, I am a Course Creator and Instructor for Teens in AI, creating courses on Image Processing and Signal Processing.
+EXPERIENCE 1 
+Utilizing cutting-edge Machine Learning techniques to optimize Mechanical Engineering experiments and enhance productivity. Extensive experience in both Traditional and Deep Machine Learning methodologies.
+EXPERIENCE 2 
+Over 50 engaging technical articles showcasing the practical applications of Machine Learning on real-world challenges, with a strong track record of attracting over 50,000 monthly views.
+EXPERIENCE 3 
+Utilizing cutting-edge Deep Learning techniques to significantly reduce MRI scan processing time
+EXPERIENCE 4 
+Bachelor's thesis: Cutting-edge research on utilizing a Deep Neural Network to accurately forecast the upcoming solar cycle.

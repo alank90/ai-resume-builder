@@ -1,4 +1,5 @@
 import streamlit as st
+import re
 from Modules.constants import *
 
 
@@ -36,8 +37,8 @@ def download_result(template_file=RESULT_FILE):
 def experience_parser(text_cv):
     """Summary - Function takes the CV text and splits the string on the text "EXPERIENCE"
                 creating a list(list_experiences), attempts to convert the first character of 
-                the first character of each experience to an integer, and adds the experience 
-                to the `selected_experience` list if the conversion is successful.  
+                each experience to an integer, and adds the experience to the `selected_experience`
+                list if the conversion is successful.  
 
         Args:
         text_cv (String): The CV form text.
@@ -46,7 +47,7 @@ def experience_parser(text_cv):
         List: Containing experiences from the CV.
     """
     list_experiences = text_cv.split('EXPERIENCE ')
-    
+
     selected_experience = []
     for l in list_experiences:
         try:
@@ -60,3 +61,34 @@ def experience_parser(text_cv):
             continue
 
     return selected_experience
+
+
+def school_parser(text_cv):
+    """Summary - Function takes the CV text and splits the string on the text "SCHOOL"
+                creating a list(school_history), attempts to convert the first character of 
+                each school to an integer, and adds the school to the `selected_school`
+                list if the conversion is successful.  
+
+        Args:
+        text_cv (String): The CV form text.
+
+        Returns:
+        List: Containing schools from the CV.
+    """
+    # school_history = text_cv.split('SCHOOL ')
+    school_history = re.split(r'SCHOOL', text_cv)
+    print("This is school_history: \n", school_history[0])
+    input("Press enter")
+    selected_school = []
+    # Loop thru
+    for item in school_history:
+        try:
+            # This is a check that first character of item is
+            # an integer.
+            int(item[0][0])
+            selected_school.append(item)
+            print("Selected school item: \n", item)
+        except:
+            continue
+
+    return selected_school

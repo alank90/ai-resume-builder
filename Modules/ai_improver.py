@@ -54,7 +54,6 @@ def single_experience_corrector(experience_text):
     st.markdown("<span style='color:lightblue'>" +
                 experience_text+"</span>", unsafe_allow_html=True)
     st.text('The AI suggests the following summary instead: \n')
-    # print(final_correction)
     st.markdown("<span style='color:red'>"+correct_text +
                 "</span>", unsafe_allow_html=True)
 

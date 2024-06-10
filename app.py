@@ -87,30 +87,48 @@ if __name__ == '__main__':
         # Submit the SUMMARY section to the OpenAI LLM for improvements
         reviewed_summary = summary_result(string_data)
 
+        # Join profile_section & reviewed_summary
         updated_cv = profile_section + reviewed_summary
 
         # Let's process the experiences in the CV form
         st.subheader('Lets discuss the work experience :office:')
         experiences = experience_parser(string_data)
-        print("This is the parsed original experiences:", experiences)
         st.write('We noticed that you added ' +
                  str(len(experience_parser(string_data))))
 
         # Iterate thru the experiences list
         for e in experiences:
             print('Experience:')
-            # This prints experiences from the second-to-last
-            print(e.split('[SEP]')[-2])
+            # This prints splits e on [SEP} and prints the
+            # second-to-last list item, which is the last line
+            # of the experience because of the [SEP] on the last line
+            # creates an empty extra list item. Then sends experience
+            # to be updated by OpenAI. Lastly, it appends results to
+            # the reviewed_experiences list.
+            # print(e.split('[SEP]')[-2])
+            review_experience = experience_result(e.split('[SEP]')[-2])
+            reviewed_experiences.append(review_experience)
 
-        # Write CV & EXPERIENCES to cv_improved.txt
+        # Write CV & EXPERIENCES to new_file(cv_improved.txt)
         new_file = open('cv_improved.txt', 'w+')
         # new_file.write('SUMMARY:\n')
         # new_file.write(reviewed_summary)
         new_file.write(updated_cv)
 
         for e in range(len(reviewed_experiences)):
-            new_file.write('\nEXPERIENCE %i \n' % (e))
+            # Writes a line to new_file(i.e., "Experience 2")
+            new_file.write('\nEXPERIENCE %i \n' % (e + 1))
             new_file.write(reviewed_experiences[e])
+            print("reviewed_experience item: \n", reviewed_experiences[e])
+
+       # Process School history
+        schools = school_parser(string_data)
+
+       # Write School history to CV
+        for s in range(len(schools)):
+            # Writes a line to new_file(i.e., "SCHOOL 2")
+            new_file.write('\nSCHOOL %i: \n' % (s + 1))
+            new_file.write(schools[s])
 
         new_file.close()
         download_result()
