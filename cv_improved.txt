@@ -11,12 +11,40 @@ WORKING AS:
 Physicist, Data Scientist, Technical Writer
 
 SUMMARY:
-I am a Physicist specializing in Data Science and Deep Learning, with a Master's Degree in Physics Of Complex Systems and Big Data, graduating with top honors. Currently, I am a Research Assistant at the University of Cincinnati's Aerospace Engineering and Engineering Mechanics Department, pursuing a PhD. My research centers on leveraging Machine Learning and Data Science to enhance engineering experiments. I also serve as a technical writer for Towards Data Science, exploring advanced Machine Learning applications and techniques for a diverse audience. Furthermore, I am a Course Creator and Instructor for Teens in AI, creating courses on Image Processing and Signal Processing.
+I am a Physicist with a Master's Degree in Physics of Complex Systems and Big Data. Currently, I am working as a Research Assistant in Aerospace Engineering while pursuing a PhD. My expertise lies in Data Science and Deep Learning, particularly in optimizing engineering experiments using Machine Learning techniques. Additionally, I am a technical writer for Towards Data Science and a course creator and teacher for Teens in AI. I develop courses in Image Processing and Signal Processing, showcasing my passion for educating others in these fields.
 EXPERIENCE 1 
-Utilizing cutting-edge Machine Learning techniques to optimize Mechanical Engineering experiments and enhance productivity. Extensive experience in both Traditional and Deep Machine Learning methodologies.
+Leveraging cutting-edge Machine Learning techniques to optimize Mechanical Engineering experiments and drive efficiency. Extensive experience in both Traditional and Deep Machine Learning methodologies, with a proven track record of successful research projects.
 EXPERIENCE 2 
-Over 50 engaging technical articles showcasing the practical applications of Machine Learning on real-world challenges, with a strong track record of attracting over 50,000 monthly views.
+Over 50 engaging and informative technical articles showcasing the practical applications of Machine Learning in solving real-world problems. Boasting over 50,000 monthly views, these articles demonstrate a deep understanding of cutting-edge technology and its impact on various industries.
 EXPERIENCE 3 
-Utilizing cutting-edge Deep Learning techniques to significantly reduce MRI scan processing time
+Utilizing cutting-edge Deep Learning techniques to significantly reduce the processing time of MRI scans
 EXPERIENCE 4 
-Bachelor's thesis: Cutting-edge research on utilizing a Deep Neural Network to accurately forecast the upcoming solar cycle.
+Bachelor's thesis: Cutting-edge research on utilizing a Deep Neural Network to accurately forecast the upcoming solar cycle.SCHOOL1:
+
+University of Cincinnati[SEP]
+Aerospace Engineering and Engineering Mechanics[SEP]
+PhD[SEP]
+2021/08-Today[SEP]
+<insert text here>[SEP]
+
+SCHOOL2:
+
+University of Rome, Tor Vergata[SEP]
+Physics of Complex Systems and Big Data[SEP]
+Master's Degree[SEP]
+2019/10-2021/05[SEP]
+Master’s thesis: Deep Learning algorithms for Magnetic Resonance Imaging scans acceleration. GPA = 4.0[SEP]
+
+SCHOOL3:
+
+University of Rome, Tor Vergata[SEP]
+Physics[SEP]
+Bachelor's Degree[SEP]
+2016/10-2019/10[SEP]
+Bachelor’s thesis: Usage of a Deep Neural Network to predict the next solar cycle.[SEP]
+
+CONTACTS:
+
+Address: 1234 Street Name, City, State
+Phone Number: (111) 1234123
+LinkedIn Profile: https://www.linkedin.com/in/pieropaialunga/

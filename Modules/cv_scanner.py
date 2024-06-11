@@ -76,9 +76,8 @@ def school_parser(text_cv):
         List: Containing schools from the CV.
     """
     # school_history = text_cv.split('SCHOOL ')
-    school_history = re.split(r'SCHOOL', text_cv)
-    print("This is school_history: \n", school_history[0])
-    input("Press enter")
+    school_history = re.split('SCHOOL ', text_cv)
+
     selected_school = []
     # Loop thru
     for item in school_history:
@@ -87,7 +86,7 @@ def school_parser(text_cv):
             # an integer.
             int(item[0][0])
             selected_school.append(item)
-            print("Selected school item: \n", item)
+
         except:
             continue
 

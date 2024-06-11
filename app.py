@@ -127,8 +127,11 @@ if __name__ == '__main__':
        # Write School history to CV
         for s in range(len(schools)):
             # Writes a line to new_file(i.e., "SCHOOL 2")
-            new_file.write('\nSCHOOL %i: \n' % (s + 1))
-            new_file.write(schools[s])
+            #new_file.write('\nSCHOOL %i: \n' % (s + 1))
+            # new_file.write('SCHOOL ')
+            new_file.write('SCHOOL ' + schools[s])
+            print("Schools[] item: /n", schools[s])
+            input()
 
         new_file.close()
         download_result()
