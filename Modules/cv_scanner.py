@@ -19,7 +19,7 @@ def download_template(template_file=TEMPLATE_FILE):
 
 
 def download_result(template_file=RESULT_FILE):
-    """Summary - Function reads the contents of the template file and also creates a 
+    """Summary - Function reads the contents of the template file and also creates a
         download button using Streamlit for user to download the updated CV.
 
     Args:
@@ -36,9 +36,9 @@ def download_result(template_file=RESULT_FILE):
 
 def experience_parser(text_cv):
     """Summary - Function takes the CV text and splits the string on the text "EXPERIENCE"
-                creating a list(list_experiences), attempts to convert the first character of 
+                creating a list(list_experiences), attempts to convert the first character of
                 each experience to an integer, and adds the experience to the `selected_experience`
-                list if the conversion is successful.  
+                list if the conversion is successful.
 
         Args:
         text_cv (String): The CV form text.
@@ -65,9 +65,9 @@ def experience_parser(text_cv):
 
 def school_parser(text_cv):
     """Summary - Function takes the CV text and splits the string on the text "SCHOOL"
-                creating a list(school_history), attempts to convert the first character of 
+                creating a list(school_history), attempts to convert the first character of
                 each school to an integer, and adds the school to the `selected_school`
-                list if the conversion is successful.  
+                list if the conversion is successful.
 
         Args:
         text_cv (String): The CV form text.
@@ -75,19 +75,31 @@ def school_parser(text_cv):
         Returns:
         List: Containing schools from the CV.
     """
-    # school_history = text_cv.split('SCHOOL ')
-    school_history = re.split('SCHOOL ', text_cv)
+    start_text = "SCHOOL 1:"
+    end_text = "CONTACTS:"
 
-    selected_school = []
-    # Loop thru
-    for item in school_history:
-        try:
-            # This is a check that first character of item is
-            # an integer.
-            int(item[0][0])
-            selected_school.append(item)
+    start_index = text_cv.find(start_text)
+    end_index = text_cv.find(end_text)
 
-        except:
-            continue
+    selected_schools = text_cv[start_index:end_index]
 
-    return selected_school
+    print("The selected scools: \n", selected_schools)
+
+    return selected_schools
+
+
+def contacts_parser(text_cv):
+    """Summary - Function takes the CV text and splits the string on the text "CONTACTS:"
+                creating a substring of the CONTACTS section of the cv.
+
+        Args:
+        text_cv (String): The CV form text.
+
+        Returns:
+        String: CONTACTS section of the CV.
+    """
+    start_text = "CONTACTS:"
+    start_index = text_cv.find(start_text)
+    contacts = text_cv[start_index:]
+
+    return contacts

@@ -11,15 +11,15 @@ WORKING AS:
 Physicist, Data Scientist, Technical Writer
 
 SUMMARY:
-I am a Physicist with a Master's Degree in Physics of Complex Systems and Big Data. Currently, I am working as a Research Assistant in Aerospace Engineering while pursuing a PhD. My expertise lies in Data Science and Deep Learning, particularly in optimizing engineering experiments using Machine Learning techniques. Additionally, I am a technical writer for Towards Data Science and a course creator and teacher for Teens in AI. I develop courses in Image Processing and Signal Processing, showcasing my passion for educating others in these fields.
-EXPERIENCE 1 
-Leveraging cutting-edge Machine Learning techniques to optimize Mechanical Engineering experiments and drive efficiency. Extensive experience in both Traditional and Deep Machine Learning methodologies, with a proven track record of successful research projects.
-EXPERIENCE 2 
-Over 50 engaging and informative technical articles showcasing the practical applications of Machine Learning in solving real-world problems. Boasting over 50,000 monthly views, these articles demonstrate a deep understanding of cutting-edge technology and its impact on various industries.
-EXPERIENCE 3 
-Utilizing cutting-edge Deep Learning techniques to significantly reduce the processing time of MRI scans
-EXPERIENCE 4 
-Bachelor's thesis: Cutting-edge research on utilizing a Deep Neural Network to accurately forecast the upcoming solar cycle.SCHOOL1:
+I am a Physicist specializing in Data Science and Deep Learning, with a Master's Degree in Physics Of Complex Systems and Big Data with top honors. Currently, I work as a Research Assistant at the University of Cincinnati, where I focus on optimizing engineering experiments using Machine Learning and Data Science. Additionally, I have experience as a technical writer for Towards Data Science and as a course creator and teacher for Teens in AI, where I develop courses on Image Processing and Signal Processing.
+EXPERIENCE:
+1Utilizing cutting-edge Machine Learning techniques to revolutionize the efficiency of Mechanical Engineering experiments through the development of surrogate modeling. Extensive experience in both Traditional and Deep Machine Learning, with a strong emphasis on hands-on research.
+EXPERIENCE:
+2Over 50 engaging technical articles showcasing the practical applications of Machine Learning on real-world problems, attracting over 50,000 monthly views.
+EXPERIENCE:
+3Utilizing cutting-edge Deep Learning techniques to significantly reduce the processing time of MRI scans
+EXPERIENCE:
+4Bachelor’s thesis: Utilizing cutting-edge Deep Neural Network technology to accurately forecast the upcoming solar cycle.SCHOOL 1:
 
 University of Cincinnati[SEP]
 Aerospace Engineering and Engineering Mechanics[SEP]
@@ -27,7 +27,7 @@ PhD[SEP]
 2021/08-Today[SEP]
 <insert text here>[SEP]
 
-SCHOOL2:
+SCHOOL 2:
 
 University of Rome, Tor Vergata[SEP]
 Physics of Complex Systems and Big Data[SEP]
@@ -35,7 +35,7 @@ Master's Degree[SEP]
 2019/10-2021/05[SEP]
 Master’s thesis: Deep Learning algorithms for Magnetic Resonance Imaging scans acceleration. GPA = 4.0[SEP]
 
-SCHOOL3:
+SCHOOL 3:
 
 University of Rome, Tor Vergata[SEP]
 Physics[SEP]

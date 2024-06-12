@@ -110,28 +110,33 @@ if __name__ == '__main__':
             reviewed_experiences.append(review_experience)
 
         # Write CV & EXPERIENCES to new_file(cv_improved.txt)
-        new_file = open('cv_improved.txt', 'w+')
-        # new_file.write('SUMMARY:\n')
-        # new_file.write(reviewed_summary)
-        new_file.write(updated_cv)
-
         for e in range(len(reviewed_experiences)):
             # Writes a line to new_file(i.e., "Experience 2")
-            new_file.write('\nEXPERIENCE %i \n' % (e + 1))
-            new_file.write(reviewed_experiences[e])
-            print("reviewed_experience item: \n", reviewed_experiences[e])
+            updated_cv += '\nEXPERIENCE:\n' + str(e + 1)
 
-       # Process School history
-        schools = school_parser(string_data)
+            start_text = "EXPERIENCE:" + str(e+1)
+            end_text = "EXPERIENCE:" + str(e + 2)
+
+            start_index = string_data.find(start_text)
+            end_index = string_data.find(end_text)
+
+            experience_text = string_data[start_index:end_index]
+            print("review_experience item: \n", review_experience)
+            input()
+
+            updated_cv += experience_text + reviewed_experiences[e]
+           
 
        # Write School history to CV
-        for s in range(len(schools)):
-            # Writes a line to new_file(i.e., "SCHOOL 2")
-            #new_file.write('\nSCHOOL %i: \n' % (s + 1))
-            # new_file.write('SCHOOL ')
-            new_file.write('SCHOOL ' + schools[s])
-            print("Schools[] item: /n", schools[s])
-            input()
+        schools = school_parser(string_data)
+        updated_cv += schools
+
+       # Write Contacts to CV
+        contacts = contacts_parser(string_data)
+        updated_cv += contacts
+
+        new_file = open('cv_improved.txt', 'w+')
+        new_file.write(updated_cv)
 
         new_file.close()
         download_result()
