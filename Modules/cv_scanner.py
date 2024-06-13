@@ -1,6 +1,9 @@
 import streamlit as st
-import re
 from Modules.constants import *
+
+# =================================================================================== #
+# ========================= Function Modules ======================================== #
+# =================================================================================== #
 
 
 def download_template(template_file=TEMPLATE_FILE):
@@ -17,6 +20,8 @@ def download_template(template_file=TEMPLATE_FILE):
         'The first step is to fill the CV. Download the template here :rocket:', content)
     content_file.close()
 
+# -------------------------------------------------------------------------------------------- #
+
 
 def download_result(template_file=RESULT_FILE):
     """Summary - Function reads the contents of the template file and also creates a
@@ -32,6 +37,8 @@ def download_result(template_file=RESULT_FILE):
     st.download_button(
         'Download the result of your AI improved CV here :wink:', content)
     content_file.close()
+
+# -------------------------------------------------------------------------------------------- #
 
 
 def experience_parser(text_cv):
@@ -52,8 +59,8 @@ def experience_parser(text_cv):
     for l in list_experiences:
         try:
             # This is a check that first character of l is
-            # an integer, because original form began each
-            # experience with a number.
+            # an integer, because each list item should begin
+            # with an integer
             int(l[0][0])
             selected_experience.append(l)
 
@@ -62,18 +69,17 @@ def experience_parser(text_cv):
 
     return selected_experience
 
+# -------------------------------------------------------------------------------------------- #
+
 
 def school_parser(text_cv):
-    """Summary - Function takes the CV text and splits the string on the text "SCHOOL"
-                creating a list(school_history), attempts to convert the first character of
-                each school to an integer, and adds the school to the `selected_school`
-                list if the conversion is successful.
-
+    """Summary - Function takes the CV text and splits the string on the text "SCHOOL 1:"
+                  and "CONTACTS" returning the Schools section of the CV.
         Args:
         text_cv (String): The CV form text.
 
         Returns:
-        List: Containing schools from the CV.
+        The txt_cv SCHOOLS subsection.
     """
     start_text = "SCHOOL 1:"
     end_text = "CONTACTS:"
@@ -81,11 +87,11 @@ def school_parser(text_cv):
     start_index = text_cv.find(start_text)
     end_index = text_cv.find(end_text)
 
-    selected_schools = text_cv[start_index:end_index]
+    school_subsection = text_cv[start_index:end_index]
 
-    print("The selected scools: \n", selected_schools)
+    return school_subsection
 
-    return selected_schools
+# -------------------------------------------------------------------------------------------- #
 
 
 def contacts_parser(text_cv):

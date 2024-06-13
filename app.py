@@ -94,20 +94,23 @@ if __name__ == '__main__':
         st.subheader('Lets discuss the work experience :office:')
         experiences = experience_parser(string_data)
         st.write('We noticed that you added ' +
-                 str(len(experience_parser(string_data))))
+                 str(len(experience_parser(string_data))) + ' work experiences')
 
         # Iterate thru the experiences list
         for e in experiences:
-            print('Experience:')
-            # This prints splits e on [SEP} and prints the
-            # second-to-last list item, which is the last line
-            # of the experience because of the [SEP] on the last line
-            # creates an empty extra list item. Then sends experience
-            # to be updated by OpenAI. Lastly, it appends results to
-            # the reviewed_experiences list.
-            # print(e.split('[SEP]')[-2])
+            # This prints splits e on [SEP] and sends the last line of
+            # experience description to OpenAI to improve it. It then
+            # appends to list reviewed_experiences. Now have a list of
+            # improved experience descriptions. Still need to merge each
+            # experiences first three lines with improved experience
+            # description.
             review_experience = experience_result(e.split('[SEP]')[-2])
             reviewed_experiences.append(review_experience)
+
+        # Overwrite each item in string_data experience section last 
+        # line with corresponding reviewed_experiences list item
+        print('Original experience entry: \n',string_data)
+        print("Reviewed experience item 1", reviewed_experiences[0])
 
         # Write CV & EXPERIENCES to new_file(cv_improved.txt)
         for e in range(len(reviewed_experiences)):
@@ -121,15 +124,13 @@ if __name__ == '__main__':
             end_index = string_data.find(end_text)
 
             experience_text = string_data[start_index:end_index]
-            print("review_experience item: \n", review_experience)
-            input()
 
             updated_cv += experience_text + reviewed_experiences[e]
-           
 
        # Write School history to CV
-        schools = school_parser(string_data)
-        updated_cv += schools
+        schools_text = school_parser(string_data)
+
+        updated_cv += schools_text
 
        # Write Contacts to CV
         contacts = contacts_parser(string_data)

@@ -10,7 +10,7 @@ client = OpenAI()
 # ==================== Functions ===================== #
 # ==================================================== #
 
-
+@st.cache_data
 def general_corrector(prompt, temperature, model=OPENAIMODEL, max_tokens=50):
     """ Summary - Function uses the OpenAI Completion module. You give it
       a prompt and it returns a text completion, generated according to your
