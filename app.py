@@ -44,20 +44,25 @@ def summary_result(string_data):
     return text
 
 
-def experience_result(experience_text):
+def ai_experience_improver(experience_description_text):
     """ Summary - Function sends CV experience section to OPENAI to generate  
          AI generated section.
 
     Args:
-        experience_text (String): Original experience section text
+        experience_description_text (String): The stripped out last line EXPERIENNCE
+        description of a single EXPERIENCE section.
 
     Returns:
-        String: OPENAI generated text
+        String: OPENAI generated improved experience description text.
     """
     st.write('Improving the work experience for you!')
-    text = single_experience_corrector(experience_text)
+    ai_experince_description_improved = ai_single_experience_improver(
+        experience_description_text)
 
-    return text
+    # Now need to replace original Experience description with AI improved
+    # description in the EXPERIENCE section.
+
+    return ai_experince_description_improved
 
 # ------------------------------------------------------------------------------------------- #
 
@@ -73,7 +78,7 @@ if __name__ == '__main__':
     st.write("\n Let's see what you got! Download the following template and fill it out with your information! :sunglasses:")
     download_template()
     uploaded_file = st.file_uploader("Upload your CV here! :point_down")
-    reviewed_experiences = []
+    ai_improved_experiences_list = []
 
     if uploaded_file is not None:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
@@ -90,30 +95,40 @@ if __name__ == '__main__':
         # Join profile_section & reviewed_summary
         updated_cv = profile_section + reviewed_summary
 
-        # Let's process the experiences in the CV form
+        # Let's process the experiences in the CV form and improve
+        # the descriptions in each EXPERIENCE section.
         st.subheader('Lets discuss the work experience :office:')
         experiences = experience_parser(string_data)
+        print("The experinces section of CV: \n", experiences[1])
         st.write('We noticed that you added ' +
                  str(len(experience_parser(string_data))) + ' work experiences')
 
         # Iterate thru the experiences list
-        for e in experiences:
-            # This prints splits e on [SEP] and sends the last line of
-            # experience description to OpenAI to improve it. It then
-            # appends to list reviewed_experiences. Now have a list of
-            # improved experience descriptions. Still need to merge each
-            # experiences first three lines with improved experience
+        for index, item in enumerate(experiences):
+            # This loop splits experiences list item on [SEP] and sends the last line of
+            # the experience section to OpenAI to improve it. It then
+            # appends improved description to list reviewed_experiences. Now have a
+            # list of improved experience descriptions. Still need to merge each
+            # experiences list item first three lines with improved experience
             # description.
-            review_experience = experience_result(e.split('[SEP]')[-2])
-            reviewed_experiences.append(review_experience)
 
-        # Overwrite each item in string_data experience section last 
-        # line with corresponding reviewed_experiences list item
-        print('Original experience entry: \n',string_data)
-        print("Reviewed experience item 1", reviewed_experiences[0])
+            # Improve the EXPERIENCE description
+            original_experience_description = item.split('[SEP]')[-2]
+            ai_improved_experience_item = ai_experience_improver(
+                item.split('[SEP]')[-2])
+            if index == 1:
+                print("Improved item is: \n", ai_improved_experience_item)
+
+            # Update EXPERIENCE section with ai improved description
+            experiences[index] = experiences[index].replace(
+                original_experience_description, ai_improved_experience_item)
+            print("Updated Experience section:", experiences[index])
+
+            # Push ai enhanced experience entry onto list of experience descriptions
+            ai_improved_experiences_list.append(ai_improved_experience_item)
 
         # Write CV & EXPERIENCES to new_file(cv_improved.txt)
-        for e in range(len(reviewed_experiences)):
+        for e in range(len(ai_improved_experiences_list)):
             # Writes a line to new_file(i.e., "Experience 2")
             updated_cv += '\nEXPERIENCE:\n' + str(e + 1)
 
@@ -123,9 +138,9 @@ if __name__ == '__main__':
             start_index = string_data.find(start_text)
             end_index = string_data.find(end_text)
 
-            experience_text = string_data[start_index:end_index]
+            description_ = string_data[start_index:end_index]
 
-            updated_cv += experience_text + reviewed_experiences[e]
+            updated_cv += description_ + ai_improved_experiences_list[e]
 
        # Write School history to CV
         schools_text = school_parser(string_data)

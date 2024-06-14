@@ -10,8 +10,9 @@ client = OpenAI()
 # ==================== Functions ===================== #
 # ==================================================== #
 
+
 @st.cache_data
-def general_corrector(prompt, temperature, model=OPENAIMODEL, max_tokens=50):
+def ai_general_improver(prompt, temperature, model=OPENAIMODEL, max_tokens=50):
     """ Summary - Function uses the OpenAI Completion module. You give it
       a prompt and it returns a text completion, generated according to your
       parameters. 
@@ -39,7 +40,7 @@ def general_corrector(prompt, temperature, model=OPENAIMODEL, max_tokens=50):
 # ------------------------------------------------------------------------------- #
 
 
-def single_experience_corrector(experience_text):
+def ai_single_experience_improver(experience_text):
     """Summary - Function calls the general_contractor() function with 
         prompt constructed from EXPERIENCE_PROMPT_CONVERT constant & other parameters
     Args:
@@ -48,22 +49,22 @@ def single_experience_corrector(experience_text):
     Returns:
         String: Updated Experience section returned by OpenAI.
     """
-    correct_text = general_corrector(
+    ai_improved_experience_description = ai_general_improver(
         prompt=EXPERIENCE_PROMPT_CONVERT+experience_text, temperature=0.4, max_tokens=200)
 
     st.markdown("<span style='color:lightblue'>" +
                 experience_text+"</span>", unsafe_allow_html=True)
     st.text('The AI suggests the following summary instead: \n')
-    st.markdown("<span style='color:red'>"+correct_text +
+    st.markdown("<span style='color:red'>"+ai_improved_experience_description +
                 "</span>", unsafe_allow_html=True)
 
-    return correct_text
+    return ai_improved_experience_description
 
 # ------------------------------------------------------------------------------- #
 
 
 def summary_corrector(summary_text):
-    """Summary - The function calls general_corrector() twice to improve the Summary
+    """Summary - The function calls ai_general_improver() twice to improve the Summary
       section of the CV. It then outputs the section using Streamlit.
 
     Args:
@@ -76,13 +77,13 @@ def summary_corrector(summary_text):
     st.text('The AI is rephrasing the text (if necessary): \n')
 
     # Call the OpenAI Completion model
-    first_correction = general_corrector(
+    first_correction = ai_general_improver(
         prompt=SUMMARY_PROMPT_CONVERT+summary_text, temperature=TEMPERATURE_SUMMARY_PROMPT_CONVERT, max_tokens=200)
     print('The AI is improving the rephrased summary \n')
     st.text('The AI is improving the rephrased summary \n')
 
     # Call the OpenAI Completion module once again to refine results
-    final_correction = general_corrector(
+    final_correction = ai_general_improver(
         prompt=SUMMARY_PROMPT_IMPROVER+first_correction, temperature=TEMPERATURE_SUMMARY_PROMPT_IMPROVER, max_tokens=200)
     print('The summary of your current CV is the following: \n')
     st.text('The AI is improving the rephrased summary \n')
@@ -112,9 +113,9 @@ def summary_corrector_main(summary_text):
     Returns:
         String: Improved Summary text section using OpenAI model.
     """
-    first_correction = general_corrector(
+    first_correction = ai_general_improver(
         prompt=SUMMARY_PROMPT_CONVERT+summary_text, temperature=TEMPERATURE_SUMMARY_PROMPT_CONVERT, max_tokens=200)
-    final_correction = general_corrector(
+    final_correction = ai_general_improver(
         prompt=SUMMARY_PROMPT_IMPROVER+first_correction, temperature=TEMPERATURE_SUMMARY_PROMPT_IMPROVER, max_tokens=200)
 
     return final_correction
@@ -132,7 +133,7 @@ def single_experience_corrector_main(experience_text):
     Returns:
        String: The updated Experience section from OpenAI model.
     """
-    correct_text = general_corrector(
+    ai_improve_experience_description = ai_general_improver(
         prompt=EXPERIENCE_PROMPT_CONVERT+experience_text, temperature=0.4, max_tokens=200)
 
-    return correct_text
+    return ai_improve_experience_description
