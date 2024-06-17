@@ -11,15 +11,42 @@ WORKING AS:
 Physicist, Data Scientist, Technical Writer
 
 SUMMARY:
-I am a Physicist specializing in Data Science and Deep Learning, with a Master's Degree in Physics of Complex Systems and Big Data, awarded with top honors. Currently, I work as a Research Assistant at the University of Cincinnati, where I focus on optimizing engineering experiments through the use of Machine Learning and Data Science. In addition to my research, I am a technical writer for Towards Data Science, with a monthly readership of over 60k, and a Course Creator and Teacher for Teens in AI, where I design courses in Image Processing and Signal Processing.
-EXPERIENCE:
-1Utilizing cutting-edge Machine Learning techniques to optimize Mechanical Engineering experiments and drive efficiency. Extensive experience in both Traditional and Deep Machine Learning methodologies, with a proven track record of successful research projects.
-EXPERIENCE:
-2Over 50 engaging and informative technical articles showcasing the practical applications of Machine Learning in solving real-world challenges. With over 50,000 monthly views, these articles demonstrate a strong following and interest in cutting-edge technology.
-EXPERIENCE:
-3Utilizing cutting-edge Deep Learning techniques to significantly reduce MRI scan processing time
-EXPERIENCE:
-4Bachelor’s thesis: Cutting-edge research on utilizing a Deep Neural Network to accurately forecast the upcoming solar cycle.SCHOOL 1:
+I am a highly skilled Physicist specializing in Data Science and Deep Learning. I have a Master's Degree in Physics Of Complex Systems and Big Data with top honors. Currently, I am a Research Assistant at the University of Cincinnati, working towards a PhD in Aerospace Engineering and Engineering Mechanics. My research centers on utilizing Machine Learning and Data Science to enhance engineering experiments. I also contribute articles to Towards Data Science, providing valuable insights on Machine Learning applications and techniques. Furthermore, I am a Course Creator and Teacher for Teens in AI, where I have designed courses in Image Processing and Signal Processing.
+EXPERIENCE: 
+11:
+
+Research Assistant[SEP]
+Aerospace Engineering and Engineering Mechanics Department, University of Cincinnati[SEP]
+2021/08/DD-Today[SEP]Utilizing cutting-edge Machine Learning techniques to revolutionize the efficiency of Mechanical Engineering experiments through the development of surrogate modeling. Extensive experience in both Traditional and Deep Machine Learning, with a proven track record of successful hands-on research in the field.[SEP]
+
+
+
+EXPERIENCE: 
+22:
+
+Technical Writer[SEP]
+Towards Data Science[SEP]
+2020/11/DD-Today[SEP]"Experienced technical writer with a portfolio of 50+ engaging articles showcasing the practical applications of Machine Learning in real-world scenarios. Demonstrated success with a readership of over 50k monthly views. Ready to bring expertise and passion for cutting-edge technology to your team."[SEP]
+
+
+EXPERIENCE: 
+33: 
+
+Data Scientist, Internship[SEP]
+Accenture[SEP]
+2021/02-2021/07[SEP]Utilizing advanced Deep Learning techniques to significantly reduce the processing time of MRI scans[SEP]
+
+
+
+EXPERIENCE: 
+44: 
+
+Data Scientist, Internship[SEP]
+University of Rome, Tor Vergata,Department of Solar Physics,[SEP]
+2020/09-2020/12[SEP]
+Developing Deep Learning algorithms to classify Solar Flares based on magnetograms[SEP]
+
+SCHOOL 1:
 
 University of Cincinnati[SEP]
 Aerospace Engineering and Engineering Mechanics[SEP]
@@ -40,8 +67,7 @@ SCHOOL 3:
 University of Rome, Tor Vergata[SEP]
 Physics[SEP]
 Bachelor's Degree[SEP]
-2016/10-2019/10[SEP]
-Bachelor’s thesis: Usage of a Deep Neural Network to predict the next solar cycle.[SEP]
+2016/10-2019/10[SEP]Bachelor’s thesis: Cutting-edge research on utilizing a Deep Neural Network to accurately forecast the upcoming solar cycle.[SEP]
 
 CONTACTS:
 
