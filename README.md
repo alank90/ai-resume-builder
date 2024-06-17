@@ -24,7 +24,7 @@ _.\env\Scripts\activate.ps1_
 
 ## Notes on setting up Python project & environment
 
-- Create a .env file in root directory and then add the key OPENAI*API_KEY="My_API_Key".
+- Create a .env file in root directory and then add the key OPENAI_API_KEY="My_API_Key".
   Because we have specifically named the env variable "\_OPENAI_API_KEY*" the OpenAI module will automatically import it, no need to add it when initializing the client. Or else you can assign a variable with the _load_dotenv_ library and call it:
 
   _from **dotenv** import \*\*\_load_dotenv_\*\*
