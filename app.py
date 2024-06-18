@@ -4,6 +4,8 @@ import streamlit as st
 from Modules.ai_improver import *
 from Modules.constants import *
 from Modules.cv_scanner import *
+import Modules.user_input as user_input
+
 
 # ================================================================ #
 # ================= Functions ==================================== #
@@ -91,12 +93,16 @@ if __name__ == '__main__':
 
     st.image(image, caption='Photo by Unseen Studio on Unsplash')
     st.header('Improving your CV in seconds using ChatGPT!')
-    st.write('This app is meant to improve the quality of your CV by using Artificial Intelligence\n Start by downloading the template, fill the information, upload your CV and enjoy the magic! :smile:')
+    st.write('This app is meant to improve the quality of your CV by using Artificial Intelligence\n Start by filling in the information and enjoy the magic! :smile:')
     st.write("\n Let's see what you got! Download the following template and fill it out with your information! :sunglasses:")
-    download_template()
-    uploaded_file = st.file_uploader("Upload your CV here! :point_down")
+    # download_template()
+    # uploaded_file = st.file_uploader("Upload your CV here! :point_down")
 
-    if uploaded_file is not None:
+    # ========= Get user input for the Resume =========================== #
+    user_resume = user_input.get()
+    st.write("User_resume contents are:", user_resume.name)
+
+    """ if user_resume is not None:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
         st.write(stringio)
         # Read filled out form into string_data
@@ -139,4 +145,4 @@ if __name__ == '__main__':
         new_file.write(updated_cv)
 
         new_file.close()
-        download_result()
+        download_result() """
