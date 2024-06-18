@@ -85,24 +85,29 @@ def ai_experience_improver(experiences_list):
 # ================= Main Procedure =============================== #
 # ================================================================ #
 if __name__ == '__main__':
+    # ====== Vars ==================== #
     image = Image.open('images/resume_image.jpeg')
+    ai_improved_experiences_list = []
+
     st.image(image, caption='Photo by Unseen Studio on Unsplash')
     st.header('Improving your CV in seconds using ChatGPT!')
     st.write('This app is meant to improve the quality of your CV by using Artificial Intelligence\n Start by downloading the template, fill the information, upload your CV and enjoy the magic! :smile:')
     st.write("\n Let's see what you got! Download the following template and fill it out with your information! :sunglasses:")
     download_template()
     uploaded_file = st.file_uploader("Upload your CV here! :point_down")
-    ai_improved_experiences_list = []
 
     if uploaded_file is not None:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
         st.write(stringio)
         # Read filled out form into string_data
         string_data = stringio.read()
+
         # Extract out the profile info
         profile_section = profile_extractor(string_data)
 
+        # Streamlit output
         st.subheader('Lets discuss the summary :male-detective:')
+
         # Submit the SUMMARY section to the OpenAI LLM for improvements
         reviewed_summary = summary_result(string_data)
 
@@ -110,30 +115,25 @@ if __name__ == '__main__':
         updated_cv = profile_section + reviewed_summary
 
         # Let's process the experiences_list in the CV form and improve
-        # the descriptions in each EXPERIENCE section.
+        # the descriptions in each EXPERIENCE section via AI.
         st.subheader('Lets discuss the work experience :office:')
+        # Slice out a list of experiences from the submitted CV
         experiences_list = experience_parser(string_data)
         st.write('We noticed that you added ' +
                  str(len(experience_parser(string_data))) + ' work experiences_list')
 
+        # Submit the experiences_list to OpenAI for improvements
         ai_updated_experiences_list = ai_experience_improver(experiences_list)
 
-        # Construct new improved Experiences section
+        # Loop thru the ai_updated_experiences_list and add each item to
+        # the updated_cv file
         for e in range(len(ai_updated_experiences_list)):
-            print("The updated experience description: \n",
-                  ai_updated_experiences_list[e], e)
-            # Updates the file
-            updated_cv = updated_cv + '\nEXPERIENCE: \n' + str(e + 1)
+            # Updates the CV file
+            updated_cv = updated_cv + '\nEXPERIENCE '
             updated_cv = updated_cv + ai_updated_experiences_list[e]
 
-       # Write School history to CV
-        """ schools_text = school_parser(string_data)
-
-        updated_cv = updated_cv + schools_text """
-
-       # Write Contacts to CV
-        """ contacts = contacts_parser(string_data)
-        updated_cv = updated_cv + contacts """
+        # REmove the [SEP] tokens
+        updated_cv = updated_cv.replace("[SEP]", "")
 
         new_file = open('cv_improved.txt', 'w+')
         new_file.write(updated_cv)

@@ -11,63 +11,59 @@ WORKING AS:
 Physicist, Data Scientist, Technical Writer
 
 SUMMARY:
-I am a highly skilled Physicist specializing in Data Science and Deep Learning. I have a Master's Degree in Physics Of Complex Systems and Big Data with top honors. Currently, I am a Research Assistant at the University of Cincinnati, working towards a PhD in Aerospace Engineering and Engineering Mechanics. My research centers on utilizing Machine Learning and Data Science to enhance engineering experiments. I also contribute articles to Towards Data Science, providing valuable insights on Machine Learning applications and techniques. Furthermore, I am a Course Creator and Teacher for Teens in AI, where I have designed courses in Image Processing and Signal Processing.
-EXPERIENCE: 
-11:
+I am a Physicist with a Master's Degree in Physics of Complex Systems and Big Data, currently employed as a Research Assistant at the University of Cincinnati. My research centers on enhancing engineering experiments through the application of Machine Learning and Data Science techniques. Additionally, I serve as a technical writer for Towards Data Science, reaching a monthly audience of over 60k, and as a Course Creator and Instructor for Teens in AI. I have created courses in Image Processing and Signal Processing, aiming to educate and inspire the next generation of AI enthusiasts.
+EXPERIENCE 1:
 
-Research Assistant[SEP]
-Aerospace Engineering and Engineering Mechanics Department, University of Cincinnati[SEP]
-2021/08/DD-Today[SEP]Utilizing cutting-edge Machine Learning techniques to revolutionize the efficiency of Mechanical Engineering experiments through the development of surrogate modeling. Extensive experience in both Traditional and Deep Machine Learning, with a proven track record of successful hands-on research in the field.[SEP]
-
-
-
-EXPERIENCE: 
-22:
-
-Technical Writer[SEP]
-Towards Data Science[SEP]
-2020/11/DD-Today[SEP]"Experienced technical writer with a portfolio of 50+ engaging articles showcasing the practical applications of Machine Learning in real-world scenarios. Demonstrated success with a readership of over 50k monthly views. Ready to bring expertise and passion for cutting-edge technology to your team."[SEP]
-
-
-EXPERIENCE: 
-33: 
-
-Data Scientist, Internship[SEP]
-Accenture[SEP]
-2021/02-2021/07[SEP]Utilizing advanced Deep Learning techniques to significantly reduce the processing time of MRI scans[SEP]
+Research Assistant
+Aerospace Engineering and Engineering Mechanics Department, University of Cincinnati
+2021/08/DD-TodayUtilizing cutting-edge Machine Learning techniques to revolutionize the efficiency of Mechanical Engineering experiments through the development of surrogate modeling. Extensive experience in both Traditional and Deep Machine Learning, with a strong focus on hands-on research and practical application.
 
 
 
-EXPERIENCE: 
-44: 
+EXPERIENCE 2:
 
-Data Scientist, Internship[SEP]
-University of Rome, Tor Vergata,Department of Solar Physics,[SEP]
-2020/09-2020/12[SEP]
-Developing Deep Learning algorithms to classify Solar Flares based on magnetograms[SEP]
+Technical Writer
+Towards Data Science
+2020/11/DD-TodayOver 50 engaging technical articles showcasing the practical application of Machine Learning on real-world challenges, with a strong track record of attracting over 50,000 monthly views.
+
+
+EXPERIENCE 3: 
+
+Data Scientist, Internship
+Accenture
+2021/02-2021/07Utilizing cutting-edge Deep Learning techniques to significantly reduce the processing time of MRI scans
+
+
+
+EXPERIENCE 4: 
+
+Data Scientist, Internship
+University of Rome, Tor Vergata,Department of Solar Physics,
+2020/09-2020/12
+Developing Deep Learning algorithms to classify Solar Flares based on magnetograms
 
 SCHOOL 1:
 
-University of Cincinnati[SEP]
-Aerospace Engineering and Engineering Mechanics[SEP]
-PhD[SEP]
-2021/08-Today[SEP]
-<insert text here>[SEP]
+University of Cincinnati
+Aerospace Engineering and Engineering Mechanics
+PhD
+2021/08-Today
+<insert text here>
 
 SCHOOL 2:
 
-University of Rome, Tor Vergata[SEP]
-Physics of Complex Systems and Big Data[SEP]
-Master's Degree[SEP]
-2019/10-2021/05[SEP]
-Master’s thesis: Deep Learning algorithms for Magnetic Resonance Imaging scans acceleration. GPA = 4.0[SEP]
+University of Rome, Tor Vergata
+Physics of Complex Systems and Big Data
+Master's Degree
+2019/10-2021/05
+Master’s thesis: Deep Learning algorithms for Magnetic Resonance Imaging scans acceleration. GPA = 4.0
 
 SCHOOL 3:
 
-University of Rome, Tor Vergata[SEP]
-Physics[SEP]
-Bachelor's Degree[SEP]
-2016/10-2019/10[SEP]Bachelor’s thesis: Cutting-edge research on utilizing a Deep Neural Network to accurately forecast the upcoming solar cycle.[SEP]
+University of Rome, Tor Vergata
+Physics
+Bachelor's Degree
+2016/10-2019/10Bachelor's thesis: Cutting-edge research utilizing a Deep Neural Network to accurately predict the upcoming solar cycle.
 
 CONTACTS:
 
