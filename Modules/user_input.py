@@ -3,15 +3,25 @@ import streamlit as st
 
 
 def get():
-    # Gather user input for creating the resume
-    name = st.text_input("Enter your name: ", placeholder="Full name", key="1")
-    st.write(name)
-    current_position = st.text_input("Enter your current position: ", key="2")
-    email = st.text_input("Ënter your email: ", key="3")
-    mobile = st.text_input("Enter your mobile number: ",
-                           placeholder="i.e. 555 233-1212", key="4")
+    with st.expander("Fill out your profile"):
+        # Gather user input for creating the resume
+        name = st.text_input("Enter your name: ",
+                             placeholder="Full name", key="1")
+        name = "Name: \n" + name
+        st.write(name)
+        current_position = st.text_input(
+            "Enter your current position: ", key="2")
+        current_position = "Current Title: \n" + current_position
+        email = st.text_input("Ënter your email: ", key="3")
+        email = "Email: \n" + email
+        mobile = st.text_input("Enter your mobile number: ",
+                               placeholder="i.e. 555 233-1212", key="4")
+        mobile = "Mobile: \n" + mobile
+        summary = st.text_area(
+            "Please give a brief summary of yourself", key="5")
+        summary = "SUMMARY: \n" + summary
 
-    print("\nEducation:")
+    """ print("\nEducation:")
     education = []
     counter = 1000
 
@@ -35,6 +45,11 @@ def get():
             f"Enter your score (e.g., GPA/Percentage) of {level} at {institution}: ", key="10")
         education.append({"level": level, "institution": institution,
                           "field": field, "duration": duration, "score": score, })
+    
+    
+    
+     """
+
     """
     skills = st.text_input("\nEnter your skills (comma-seperated): ",  key= "11")
 
@@ -80,4 +95,4 @@ def get():
     # Prompt user to add other activities or hobbies
     # activities = st.text_input("Enter your other activities: ")
     # return resume_builder.Resume(name, email, mobile, current_position, education, skills, experience, projects, achievements, activities)
-    return resume_builder.Resume(name, email, mobile, education)
+    return resume_builder.Resume(name, email, current_position, mobile, summary)

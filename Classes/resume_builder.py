@@ -3,12 +3,13 @@
 
 class Resume:
     # pylint: disable-next=too-many-arguments
-    def __init__(self, name,  email, mobile, education):
+    def __init__(self, name,  email, current_position, mobile, summary):
         # Initialize the resume object with user information
         self.name = name
         self.email = email
+        self.current_position = current_position
         self.mobile = mobile
-        self.education = education
+        self.summary = summary
     """ def __init__(self, name,  email, mobile, education, skills,
                  experience, projects, achievements, activities):
         # Initialize the resume object with user information

@@ -88,8 +88,7 @@ def summary_corrector(summary_text):
     print('The summary of your current CV is the following: \n')
     st.text('The AI is improving the rephrased summary \n')
     print(summary_text + "\n")
-    # st.text (summary_text)
-    st.text('The summary section of your CV is the following one: \n')
+    st.text('You wrote the following CV summary: \n')
     st.markdown("<span style='color:lightblue'>" +
                 summary_text+"</span>", unsafe_allow_html=True)
     st.text('The AI suggests the following summary instead: \n')

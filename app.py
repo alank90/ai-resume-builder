@@ -38,10 +38,9 @@ def summary_result(string_data):
     """
     st.write('Improving the summary for you! :rocket:')
 
-    # This will return a portion of the CV up to end of the SUMMARY
-    # section.
-    trimmed_text = get_fixedkey_text(FIXED_KEYS[1], string_data)
-    text = summary_corrector(trimmed_text)
+    # Calls OpenAI with SUMMARY text
+    # trimmed_text = get_fixedkey_text(FIXED_KEYS[1], string_data)
+    text = summary_corrector(string_data)
 
     return text
 
@@ -98,9 +97,18 @@ if __name__ == '__main__':
     # download_template()
     # uploaded_file = st.file_uploader("Upload your CV here! :point_down")
 
+    # =================================================================== #
     # ========= Get user input for the Resume =========================== #
+    # =================================================================== #
+
+    # Start with User's Profile section of the CV
+
     user_resume = user_input.get()
-    st.write("User_resume contents are:", user_resume.name)
+
+    # Submit the SUMMARY section to the OpenAI LLM for improvements
+    reviewed_summary = summary_result(user_resume.summary)
+
+    st.write("User_resume updated summary: \n", user_resume.summary)
 
     """ if user_resume is not None:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
