@@ -102,9 +102,9 @@ if __name__ == '__main__':
     # =================================================================== #
 
     # Start with User's Profile section of the CV
-
     user_resume = user_input.get()
-
+    st.write(user_resume)
+    
     # Submit the SUMMARY section to the OpenAI LLM for improvements
     reviewed_summary = summary_result(user_resume.summary)
 

@@ -8,7 +8,6 @@ def get():
         name = st.text_input("Enter your name: ",
                              placeholder="Full name", key="1")
         name = "Name: \n" + name
-        st.write(name)
         current_position = st.text_input(
             "Enter your current position: ", key="2")
         current_position = "Current Title: \n" + current_position
@@ -21,78 +20,86 @@ def get():
             "Please give a brief summary of yourself", key="5")
         summary = "SUMMARY: \n" + summary
 
-    """ print("\nEducation:")
-    education = []
-    counter = 1000
+    with st.expander("Enter your Education details: "):
+        # print("\nEducation:")
+        education_array = []
+        counter = 1000
 
-    while True:
-        # Prompt user to add education details
-        edu_input = st.text_input(
-            "Do you want to add education details? (yes/no)", key=counter).lower()
-        counter = counter + 1
-        if edu_input != 'yes':
-            break
+        while True:
+            if counter != 1000:
+                counter += 1
+            print(counter)
+            # Prompt user to add education details
+            edu_input = st.text_input(
+                "Do you want to add education details? (yes/no)", key=counter).lower()
+            if edu_input != 'yes':
+                break
 
-        level = st.text_input(
-            "Enter education level (e.g., Graduation(UG/PG), High School): ", key="6")
-        institution = st.text_input(
-            f"Enter the name of the {level} institution: ", key="7")
-        field = st.text_input(f"Enter the field of study at {
-                              institution}: ", key="8")
-        duration = st.text_input(f"Enter passing year of {
-            level} at {institution}: ", key="9")
-        score = st.text_input(
-            f"Enter your score (e.g., GPA/Percentage) of {level} at {institution}: ", key="10")
-        education.append({"level": level, "institution": institution,
-                          "field": field, "duration": duration, "score": score, })
-    
-    
-    
-     """
+            counter += 1
+            education.level = st.text_input(
+                "Enter education level (e.g., Graduation(UG/PG), High School): ", key=counter)
+            counter += 1
 
-    """
-    skills = st.text_input("\nEnter your skills (comma-seperated): ",  key= "11")
+            education.institution = st.text_input(
+                f"Enter the name of the {education.level} institution: ", key=counter)
+            counter += 1
 
-    print("\nExperience:")
-    experience = []
-    while True:
-        # Prompt user to add work experience details
-        job_role = st.text_input(
-            "Enter your job role (or type 'done' to finish): ")
-        if job_role.lower() == 'done':
-            break
-        exp_company_name = st.text_input("Enter the company name: ")
-        exp_description = st.text_input(
-            f"Enter the description for '{job_role}': ")
-        experience.append(
-            {"job_role": job_role, "company_name": exp_company_name,
-                "description": exp_description})
+            education.field = st.text_input(f"Enter the field of study at {
+                education.institution}: ", key=counter)
+            counter += 1
 
-    print("\nProjects:")
-    projects = []
-    while True:
-        # Prompt user to add project details
-        proj_heading = st.text_input(
-            "Enter the project Title (or type 'done' to finish): ")
-        if proj_heading.lower() == 'done':
-            break
-        proj_description = st.text_input(
-            f"Enter the description for '{proj_heading}': ")
-        projects.append(
-            {"name": proj_heading, "description": proj_description})
+            education.graduation_year = st.text_input(f"Enter year of graduation {
+                education.level} at {education.institution}: ", key=counter)
 
-    print("\nAchievements:")
-    achievements = []
-    while True:
-        # Prompt user to add achievement details
-        ach_input = st.text_input(
-            "Enter an achievement detail (or type 'done' to finish): ")
-        if ach_input.lower() == 'done':
-            break
-        achievements.append(ach_input)
+            counter += 1
+            education.score = st.text_input(
+                f"Enter your score (e.g., GPA/Percentage) of {education.level} at {education.institution}: ", key=counter)
+            education_array.append({"level": education.level, "institution": education.institution,
+                                    "field": education.field, "duration": education.duration, "score": education.score, })
+            print(education)
+        """
+        skills = st.text_input("\nEnter your skills (comma-seperated): ",  key= "11")
 
-    print("\nOther Activities like hobbies:") """
+        print("\nExperience:")
+        experience = []
+        while True:
+            # Prompt user to add work experience details
+            job_role = st.text_input(
+                "Enter your job role (or type 'done' to finish): ")
+            if job_role.lower() == 'done':
+                break
+            exp_company_name = st.text_input("Enter the company name: ")
+            exp_description = st.text_input(
+                f"Enter the description for '{job_role}': ")
+            experience.append(
+                {"job_role": job_role, "company_name": exp_company_name,
+                    "description": exp_description})
+
+        print("\nProjects:")
+        projects = []
+        while True:
+            # Prompt user to add project details
+            proj_heading = st.text_input(
+                "Enter the project Title (or type 'done' to finish): ")
+            if proj_heading.lower() == 'done':
+                break
+            proj_description = st.text_input(
+                f"Enter the description for '{proj_heading}': ")
+            projects.append(
+                {"name": proj_heading, "description": proj_description})
+
+        print("\nAchievements:")
+        achievements = []
+        while True:
+            # Prompt user to add achievement details
+            ach_input = st.text_input(
+                "Enter an achievement detail (or type 'done' to finish): ")
+            if ach_input.lower() == 'done':
+                break
+            achievements.append(ach_input)
+
+        print("\nOther Activities like hobbies:") """
     # Prompt user to add other activities or hobbies
     # activities = st.text_input("Enter your other activities: ")
     # return resume_builder.Resume(name, email, mobile, current_position, education, skills, experience, projects, achievements, activities)
-    return resume_builder.Resume(name, email, current_position, mobile, summary)
+    return resume_builder.Resume(name, email, current_position, mobile, summary, education)
