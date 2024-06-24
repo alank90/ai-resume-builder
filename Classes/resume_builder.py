@@ -1,24 +1,22 @@
 # ============== Class object Resume ================================= #
-class education_info:
-    def __init__(self):
-        self.level = ""
-        self.institution = ""
-        self.field = ""
-        self.graduation_year = ""
-        self.score = ""
+class Education:
+    level = ""
+    institution = ""
+    field = ""
+    grad_year = ""
+    score = ""
 
 
 class Resume:
 
     # pylint: disable-next=too-many-arguments
-    def __init__(self, name,  email, current_position, mobile, summary, education):
+    def __init__(self, name,  email, current_position, mobile, summary):
         # Initialize the resume object with user information
         self.name = name
         self.email = email
         self.current_position = current_position
         self.mobile = mobile
         self.summary = summary
-        self.education = education_info()
 
     """ def __init__(self, name,  email, mobile, education, skills,
                  experience, projects, achievements, activities):

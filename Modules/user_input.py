@@ -3,6 +3,7 @@ import streamlit as st
 
 
 def get():
+    print("Education object: \n", resume_builder.Education.level)
     with st.expander("Fill out your profile"):
         # Gather user input for creating the resume
         name = st.text_input("Enter your name: ",
@@ -28,35 +29,37 @@ def get():
         while True:
             if counter != 1000:
                 counter += 1
-            print(counter)
             # Prompt user to add education details
             edu_input = st.text_input(
                 "Do you want to add education details? (yes/no)", key=counter).lower()
             if edu_input != 'yes':
                 break
-
             counter += 1
-            education.level = st.text_input(
+
+            level = st.text_input(
                 "Enter education level (e.g., Graduation(UG/PG), High School): ", key=counter)
             counter += 1
 
-            education.institution = st.text_input(
-                f"Enter the name of the {education.level} institution: ", key=counter)
+            institution = st.text_input(
+                f"Enter the name of the {level} institution: ", key=counter)
             counter += 1
 
-            education.field = st.text_input(f"Enter the field of study at {
-                education.institution}: ", key=counter)
+            field = st.text_input(f"Enter the field of study at {
+                institution}: ", key=counter)
             counter += 1
 
-            education.graduation_year = st.text_input(f"Enter year of graduation {
-                education.level} at {education.institution}: ", key=counter)
-
+            grad_year = st.text_input(f"Enter year of graduation {
+                level} at {institution}: ", key=counter)
             counter += 1
-            education.score = st.text_input(
-                f"Enter your score (e.g., GPA/Percentage) of {education.level} at {education.institution}: ", key=counter)
-            education_array.append({"level": education.level, "institution": education.institution,
-                                    "field": education.field, "duration": education.duration, "score": education.score, })
-            print(education)
+
+            score = st.text_input(
+                f"Enter your score (e.g., GPA/Percentage) of {level} at {institution}: ", key=counter)
+
+            # Push answers onto education_array list
+            education_array.append({"level": level, "institution": institution,
+                                    "field": field, "score": score, })
+            print("Resume builde contents: \n",
+                  resume_builder.Resume.education)
         """
         skills = st.text_input("\nEnter your skills (comma-seperated): ",  key= "11")
 
@@ -102,4 +105,5 @@ def get():
     # Prompt user to add other activities or hobbies
     # activities = st.text_input("Enter your other activities: ")
     # return resume_builder.Resume(name, email, mobile, current_position, education, skills, experience, projects, achievements, activities)
-    return resume_builder.Resume(name, email, current_position, mobile, summary, education)
+
+    return resume_builder.Resume(name,  email, current_position, mobile, summary)
