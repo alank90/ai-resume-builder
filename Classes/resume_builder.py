@@ -1,4 +1,4 @@
-# ============== Class object Resume ================================= #
+# ============== Class object's ================================= #
 class Education:
     level = ""
     institution = ""
@@ -7,8 +7,13 @@ class Education:
     score = ""
 
 
-class Resume:
+class Experience:
+    job_role = ""
+    company_name = ""
+    job_description = ""
 
+
+class Resume:
     # pylint: disable-next=too-many-arguments
     def __init__(self, name,  email, current_position, mobile, summary):
         # Initialize the resume object with user information

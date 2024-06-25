@@ -103,12 +103,13 @@ if __name__ == '__main__':
 
     # Start with User's Profile section of the CV
     user_resume = user_input.get()
+    print("Your Resume contents: \n", user_resume[1].level)
     st.write(user_resume)
-    
-    # Submit the SUMMARY section to the OpenAI LLM for improvements
-    reviewed_summary = summary_result(user_resume.summary)
 
-    st.write("User_resume updated summary: \n", user_resume.summary)
+    # Submit the SUMMARY section to the OpenAI LLM for improvements
+    # reviewed_summary = summary_result(user_resume.Resume)
+
+    # st.write("User_resume updated summary: \n", user_resume.summary)
 
     """ if user_resume is not None:
         stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
