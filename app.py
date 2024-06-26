@@ -102,8 +102,11 @@ if __name__ == '__main__':
     # =================================================================== #
 
     # Start with User's Profile section of the CV
+    # Note- user_input.get() returns a tuple, which is similar to a list.
+    # So, user_resume[0] is the Profile section, user_resume[1] is the Experience
+    # section etc...
     user_resume = user_input.get()
-    print("Your Resume contents: \n", user_resume[1].level)
+    print("Your Resume contents: \n", user_resume[1].job_role)
     st.write(user_resume)
 
     # Submit the SUMMARY section to the OpenAI LLM for improvements
